@@ -69,15 +69,15 @@ const stage = new Scenes.Stage([vacancyScene, resumeScene, advertisementScene])
 bot.use(session())
 bot.use(stage.middleware())
 
-bot.hears('Razmestit vakansiyu', ctx => ctx.scene.enter('vacancyWizard'))
-bot.hears('Razmestit rezyume', ctx => ctx.scene.enter('resumeWizard'))
-bot.hears('Zakazat reklamu', ctx => ctx.scene.enter('advertisementWizard'))
+bot.hears('Разместить вакансию', ctx => ctx.scene.enter('vacancyWizard'))
+bot.hears('Разместить резюме', ctx => ctx.scene.enter('resumeWizard'))
+bot.hears('Заказать рекламу', ctx => ctx.scene.enter('advertisementWizard'))
 
 bot.start(async (ctx) => {
     try {
-        await ctx.reply("Hochu razmestit", Markup.keyboard([
-            ['Razmestit vakansiyu'],
-            ['Razmestit rezyume', 'Zakazat reklamu'],
+        await ctx.reply("Хочу разместить", Markup.keyboard([
+            ['Разместить вакансию'],
+            ['Разместить резюме', 'Заказать рекламу'],
         ]).oneTime().resize())
     } catch (error) {
         console.log(error)
